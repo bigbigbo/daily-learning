@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Grid Layout</title>
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-gap: 10px;
+        grid-template-areas:
+          "a b c"
+          "d e f"
+          "g h i";
+          margin-bottom: 10px;
+      }
+
+      .grid-item {
+        text-align: center;
+      }
+
+      .grid-item:nth-child(2n) {
+        background-color: pink;
+      }
+
+      .grid-item:nth-child(2n + 1) {
+        background-color: coral;
+      }
+
+      .grid-item1 {
+        justify-self: center;
+        align-self: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item grid-item1">1</div>
+      <div class="grid-item grid-item2">2</div>
+      <div class="grid-item grid-item3">3</div>
+      <div class="grid-item grid-item4">4</div>
+      <div class="grid-item grid-item5">5</div>
+      <div class="grid-item grid-item6">6</div>
+      <div class="grid-item grid-item7">7</div>
+      <div class="grid-item grid-item8">8</div>
+      <div class="grid-item grid-item9">9</div>
+    </div>
+  </body>
+</html>
