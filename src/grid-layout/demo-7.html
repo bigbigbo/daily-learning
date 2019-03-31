@@ -8,15 +8,16 @@
     <style>
       .grid-container {
         display: grid;
+        height: 700px;
         grid-template-columns: [c1] 100px [c2] 100px [c3] 100px [c4];
         grid-template-rows: [r1] 100px [r2] 100px [r3] 100px [r4];
         grid-gap: 10px;
         margin-bottom: 10px;
         justify-items: stretch;
         align-items: stretch;
-        justify-content: center;
-        align-content: center;
-        height: 700px;
+        justify-content: space-between;
+        align-content: space-evenly;
+        border: 1px solid red;
       }
 
       .grid-item:nth-child(2n) {
