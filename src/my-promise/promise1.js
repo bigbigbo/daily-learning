@@ -4,7 +4,7 @@ const RESOLVED = "resolved";
 const REJECTED = "rejected";
 // promise 接收一个函数参数，该函数会立即执行
 function MyPromise(fn) {
-  let _this = this;
+  const _this = this;
   _this.currentState = PENDING;
   _this.value = undefined;
   // 用于保存 then 中的回调，只有当 promise
@@ -47,9 +47,9 @@ function MyPromise(fn) {
 }
 
 MyPromise.prototype.then = function(onResolved, onRejected) {
-  var self = this;
+  let self = this;
   // 规范 2.2.7，then 必须返回一个新的 promise
-  var promise2;
+  let promise2;
   // 规范 2.2.onResolved 和 onRejected 都为可选参数
   // 如果类型不是函数需要忽略，同时也实现了透传
   // Promise.resolve(4).then().then((value) => console.log(value))
@@ -67,7 +67,7 @@ MyPromise.prototype.then = function(onResolved, onRejected) {
       // 所以用了 setTimeout 包裹下
       setTimeout(function() {
         try {
-          var x = onResolved(self.value);
+          let x = onResolved(self.value);
           resolutionProcedure(promise2, x, resolve, reject);
         } catch (reason) {
           reject(reason);
@@ -81,7 +81,7 @@ MyPromise.prototype.then = function(onResolved, onRejected) {
       setTimeout(function() {
         // 异步执行onRejected
         try {
-          var x = onRejected(self.value);
+          let x = onRejected(self.value);
           resolutionProcedure(promise2, x, resolve, reject);
         } catch (reason) {
           reject(reason);
@@ -95,7 +95,7 @@ MyPromise.prototype.then = function(onResolved, onRejected) {
       self.resolvedCallbacks.push(function() {
         // 考虑到可能会有报错，所以使用 try/catch 包裹
         try {
-          var x = onResolved(self.value);
+          let x = onResolved(self.value);
           resolutionProcedure(promise2, x, resolve, reject);
         } catch (r) {
           reject(r);
@@ -104,7 +104,7 @@ MyPromise.prototype.then = function(onResolved, onRejected) {
 
       self.rejectedCallbacks.push(function() {
         try {
-          var x = onRejected(self.value);
+          let x = onRejected(self.value);
           resolutionProcedure(promise2, x, resolve, reject);
         } catch (r) {
           reject(r);
@@ -142,7 +142,7 @@ function resolutionProcedure(promise2, x, resolve, reject) {
     // 规范 2.3.3.2，如果不能取出 then，就 reject
     try {
       // 规范 2.3.3.1
-      let then = x.then;
+      const {then} = x;
       // 如果 then 是函数，调用 x.then
       if (typeof then === "function") {
         // 规范 2.3.3.3

@@ -14,7 +14,8 @@
     "@babel/preset-react": "^7.0.0",
     "eslint-config-bigbigbo": "^0.4.0",
     "jest": "^24.1.0",
-    "react-test-renderer": "^16.8.3"
+    "react-test-renderer": "^16.8.3",
+    "typescript": "^3.4.5"
   },
   "dependencies": {
     "react": "^16.8.3",
