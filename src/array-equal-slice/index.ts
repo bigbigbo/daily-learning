@@ -1,4 +1,4 @@
-export default function arrayEqualSlice(arr: number[], len : number): number[] {
+export default function arrayEqualSlice<T>(arr: T[], len : number): T[] {
   const result = [];
   
   while(arr.length > 0) {
