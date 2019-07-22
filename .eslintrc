@@ -1,14 +1,8 @@
 {
   "extends": [
     "bigbigbo/lib/javascript",
-    "bigbigbo/lib/javascript-react",
+    "bigbigbo/lib/javascriptreact",
     "bigbigbo/lib/typescript",
-    "bigbigbo/lib/typescript-react"
-  ],
-  "rules": {
-    "semi": "error"
-  },
-  "env": {
-    "browser": true
-  }
+    "bigbigbo/lib/typescriptreact"
+  ]
 }
