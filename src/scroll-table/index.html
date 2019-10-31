@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .table-scroll {
+      overflow: auto;
+      overflow-x: hidden;
+    }
+
+    .table-scroll table {
+      min-width: 100%;
+      table-layout: fixed;
+      width: 100%;
+      border-collapse: collapse;
+
+    }
+
+    .table-scroll-header {
+      margin-bottom: -17px;
+      padding-bottom: 0px;
+      overflow: scroll;
+      background-color: #fff;
+      opacity: 0.9999;
+    }
+
+    .table-scroll-header::-webkit-scrollbar {
+      border: 1px solid #e8e8e8;
+      border-width: 0 0 0 0;
+    }
+
+    .table-hide-scrollbar {
+      scrollbar-color: transparent transparent;
+
+    }
+
+    .table-hide-scrollbar::-webkit-scrollba {
+      background-color: transparent;
+
+    }
+
+    .table-scroll-header table {}
+
+    .table-scroll-body {
+      max-height: 240px;
+      overflow-y: scroll;
+      position: relative
+    }
+
+    .table-scroll-body table {}
+
+    th,
+    td {
+      border: 1px solid #cacaca;
+      padding: 8px;
+    }
+
+    tr:first-child td {
+      border-top-width: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="table-scroll">
+
+    <div class="table-scroll-header table-hide-scrollbar">
+      <table>
+        <colgroup>
+          <col style="width: 150px; min-width: 150px;">
+          </col>
+          <col />
+          <col />
+          <col style="width: 150px; min-width: 150px;">
+          </col>
+          <col />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>项目1</th>
+            <th>项目2</th>
+            <th>项目3</th>
+            <th>项目4</th>
+            <th>项目5</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <div class="table-scroll-body">
+      <table>
+        <colgroup>
+          <col style="width: 150px; min-width: 150px;">
+          </col>
+          <col />
+          <col />
+          <col style="width: 150px; min-width: 150px;">
+          </col>
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <td>项目1</td>
+            <td>项目2</td>
+            <td>项目3</td>
+            <td>项目4</td>
+            <td>项目5</td>
+          </tr>
+          <tr>
+            <td>项目1</td>
+            <td>项目2</td>
+            <td>项目3</td>
+            <td>项目4</td>
+            <td>项目5</td>
+          </tr>
+          <tr>
+            <td>项目1</td>
+            <td>项目2</td>
+            <td>项目3</td>
+            <td>项目4</td>
+            <td>项目5</td>
+          </tr>
+          <tr>
+            <td>项目1</td>
+            <td>项目2</td>
+            <td>项目3项目3项目3</td>
+            <td>项目4</td>
+            <td>项目5</td>
+          </tr>
+          <tr>
+            <td>项目1</td>
+            <td>项目2项目2项目2</td>
+            <td>项目3</td>
+            <td>项目4</td>
+            <td>项目5</td>
+          </tr>
+          <tr>
+            <td>项目1</td>
+            <td>项目2</td>
+            <td>项目3</td>
+            <td>项目4</td>
+            <td>项目5项目5项目5项目5</td>
+          </tr>
+
+          <tr>
+            <td>项目1</td>
+            <td>项目2</td>
+            <td>项目3</td>
+            <td>项目4</td>
+            <td>项目5项目5项目5项目5</td>
+          </tr>
+
+          <tr>
+            <td>项目1</td>
+            <td>项目2</td>
+            <td>项目3</td>
+            <td>项目4</td>
+            <td>项目5项目5项目5项目5</td>
+          </tr>
+
+          <tr>
+            <td>项目1</td>
+            <td>项目2</td>
+            <td>项目3</td>
+            <td>项目4</td>
+            <td>项目5项目5项目5项目5</td>
+          </tr>
+        </tbody>
+
+
+      </table>
+    </div>
+
+  </div>
+
+  <p style="padding: 16px; background-color: pink;">页脚</p>
+</body>
+
+</html>
