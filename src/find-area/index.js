@@ -41,3 +41,32 @@ export default function findItem(areaCode, data) {
 
   return { province: null, city: null, area: null };
 }
+
+export function findItem2(areaCode, data) {
+  const result = {};
+  for (const province of data) {
+    const { children: provinceChildren, ...provinceProps } = province;
+    if (province.value === areaCode) {
+      result.province = provinceProps;
+    }
+    if (provinceChildren && provinceChildren.length > 0) {
+      for (const city of provinceChildren) {
+        const { children: cityChildren, ...cityProps } = city;
+        if (city.value === areaCode) {
+          result.province = provinceProps;
+          result.city = cityProps;
+        }
+        if (cityChildren && cityChildren.length > 0) {
+          for (const area of cityChildren) {
+            if (area.value === areaCode) {
+              result.province = provinceProps;
+              result.city = cityProps;
+              result.area = area;
+            }
+          }
+        }
+      }
+    }
+  }
+  return result;
+}

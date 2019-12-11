@@ -1,5 +1,5 @@
 /* eslint-disable no-plusplus */
-import findItem from './index';
+import findItem, { findItem2 } from './index';
 
 const data = [
   {
@@ -5352,20 +5352,41 @@ const data = [
   { "label": "澳门特别行政区", "value": "820000" }
 ];
 
-it("查找区域数据", () => {
-  for (let p = 0; p < data.length; p++) {
-    expect(findItem(data[p].value, data).province.value).toBe(data[p].value);
 
-    if (data[p].children && data[p].children.length > 0) {
-      for (let c = 0; c < data[p].children.length; c++) {
-        expect(findItem(data[p].children[c].value, data).city.value).toBe(data[p].children[c].value);
+describe("查找区域数据", () => {
+  it("for 循环", () => {
+    for (let p = 0; p < data.length; p++) {
+      expect(findItem(data[p].value, data).province.value).toBe(data[p].value);
 
-        if (data[p].children[c].children && data[p].children[c].children.length > 0) {
-          for (let a = 0; a < data[p].children[c].children.length; a++) {
-            expect(findItem(data[p].children[c].children[a].value, data).area.value).toBe(data[p].children[c].children[a].value);
+      if (data[p].children && data[p].children.length > 0) {
+        for (let c = 0; c < data[p].children.length; c++) {
+          expect(findItem(data[p].children[c].value, data).city.value).toBe(data[p].children[c].value);
+
+          if (data[p].children[c].children && data[p].children[c].children.length > 0) {
+            for (let a = 0; a < data[p].children[c].children.length; a++) {
+              expect(findItem(data[p].children[c].children[a].value, data).area.value).toBe(data[p].children[c].children[a].value);
+            }
           }
         }
       }
     }
-  }
+  });
+
+  it("for of 循环", () => {
+    for (let p = 0; p < data.length; p++) {
+      expect(findItem2(data[p].value, data).province.value).toBe(data[p].value);
+
+      if (data[p].children && data[p].children.length > 0) {
+        for (let c = 0; c < data[p].children.length; c++) {
+          expect(findItem2(data[p].children[c].value, data).city.value).toBe(data[p].children[c].value);
+
+          if (data[p].children[c].children && data[p].children[c].children.length > 0) {
+            for (let a = 0; a < data[p].children[c].children.length; a++) {
+              expect(findItem2(data[p].children[c].children[a].value, data).area.value).toBe(data[p].children[c].children[a].value);
+            }
+          }
+        }
+      }
+    }
+  });
 });
